@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
     formData.append("message", input);
     if (file) formData.append("file", file);
 
-    const res = await fetch("http://localhost:5000/api/chat", {
+    const res = await fetch("https://cravetech-legal-chatbot-demo.onrender.com/api/chat", {
       method: "POST",
       body: formData,
     });
@@ -34,8 +33,8 @@ function App() {
 
       <div className="border p-4 h-96 overflow-y-scroll bg-gray-100 rounded mb-4">
         {messages.map((msg, idx) => (
-          <div key={idx} className={\`mb-2 text-\${msg.role === "user" ? "right" : "left"}\`}>
-            <div className={\`inline-block p-2 rounded \${msg.role === "user" ? "bg-blue-100" : "bg-gray-200"}\`}>
+          <div key={idx} className={`mb-2 text-${msg.role === "user" ? "right" : "left"}`}>
+            <div className={`inline-block p-2 rounded ${msg.role === "user" ? "bg-blue-100" : "bg-gray-200"}`}>
               {msg.content}
             </div>
           </div>
